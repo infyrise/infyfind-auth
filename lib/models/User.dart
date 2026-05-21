@@ -160,4 +160,59 @@ class User {
       schemaJson: json['schemaJson'],
     );
   }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'username': username,
+      'email': email,
+
+      'emailVerifiedAt': emailVerifiedAt?.toIso8601String(),
+      'mobileVerifiedAt': mobileVerifiedAt?.toIso8601String(),
+      'lastSeenAt': lastSeenAt?.toIso8601String(),
+      'createdAt': createdAt?.toIso8601String(),
+      'updatedAt': updatedAt?.toIso8601String(),
+
+      'mobile': mobile,
+      'profileImage': profileImage,
+      'coverImage': coverImage,
+      'bio': bio,
+      'website': website,
+      'dob': dob,
+      'gender': gender,
+
+      'isPrivate': isPrivate,
+      'profileCompleted': profileCompleted,
+
+      'profileCompletionPercentage': profileCompletionPercentage,
+      'followersCount': followersCount,
+      'followingCount': followingCount,
+      'postsCount': postsCount,
+
+      'loginProvider': loginProvider,
+      'providerId': providerId,
+      'deviceToken': deviceToken,
+
+      'statusMessage': statusMessage,
+      'address': address,
+      'city': city,
+      'state': state,
+      'country': country,
+      'zipCode': zipCode,
+
+      'role': role,
+      'isActive': isActive,
+      'isVerified': isVerified,
+
+      'metaTitle': metaTitle,
+      'metaDescription': metaDescription,
+      'metaKeywords': metaKeywords,
+
+      'h1': h1,
+      'shortContent': shortContent,
+      'content': content,
+      'faqContent': faqContent,
+      'schemaJson': schemaJson,
+    };
+  }
 }
