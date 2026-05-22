@@ -14,7 +14,7 @@ class ApiConstants {
 
   /// Full base URL
   static String get baseUrl {
-    return _localBase;
+    return _prodBase;
   }
 
   static const String jobPath = '/jobs';
