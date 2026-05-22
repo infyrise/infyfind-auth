@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:infyfind_auth/models/User.dart';
 import '../../models/AuthResult.dart';
@@ -27,7 +28,7 @@ class _LoginCardState extends State<LoginCard> {
   final FocusNode otpFocusNode = FocusNode();
   LoginStep step = LoginStep.email;
 
-  final emailController = TextEditingController(text: 'admin@infyrise.com');
+  final emailController = TextEditingController(  text: kDebugMode ? 'test@infyfind.com' : '',);
   final _otpController = TextEditingController();
 
   String email = "";
