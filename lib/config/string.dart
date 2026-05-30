@@ -14,7 +14,7 @@ class ApiConstants {
 
   /// Full base URL
   static String get baseUrl {
-    return _prodBase;
+    return kReleaseMode ? _prodBase :_localBase;
   }
 
   static const String jobPath = '/jobs';
