@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:infyfind_auth/config/string.dart';
 
+import '../../../util/UrlHelper.dart';
 
 class TermsText extends StatelessWidget {
   const TermsText({super.key});
@@ -26,7 +28,7 @@ class TermsText extends StatelessWidget {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-
+                  UrlHelper.openUrl("${ApiConstants.mainUrl}/privacy-policy");
                 },
             ),
             const TextSpan(text: " and "),
@@ -39,7 +41,7 @@ class TermsText extends StatelessWidget {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-
+                  UrlHelper.openUrl("${ApiConstants.mainUrl}/privacy-policy");
                 },
             ),
             const TextSpan(text: "."),
