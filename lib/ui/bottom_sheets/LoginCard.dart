@@ -137,7 +137,7 @@ class _LoginCardState extends State<LoginCard> {
 
     setState(() => isLogin = false);
 
-    if (res.token.isNotEmpty) {
+    if (res.accessToken.isNotEmpty) {
       userData = res;
 
       setState(() => step = LoginStep.success);

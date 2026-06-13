@@ -38,7 +38,8 @@ class AuthService {
       // API failed
       if (!response.success) {
         return AuthResult(
-          token: '',
+          accessToken: '',
+          refreshToken: '',
           message: response.message ?? 'Verification failed',
           user: User.fromJson({}),
         );
@@ -48,16 +49,17 @@ class AuthService {
       final authResult = AuthResult.fromJson(response.data);
 
       // Save token locally
-      if (authResult.token.isNotEmpty) {
+      if (authResult.accessToken.isNotEmpty) {
         final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('auth_token', authResult.token);
+        await prefs.setString('auth_token', authResult.accessToken);
       }
 
       return authResult;
 
     } catch (e) {
       return AuthResult(
-        token: '',
+        accessToken: '',
+        refreshToken: '',
         message: 'Something went wrong',
         user: User.fromJson({}),
       );
