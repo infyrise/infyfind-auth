@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:infyfind_auth/models/User.dart';
 import '../../models/AuthResult.dart';
 import '../../services/auth_service.dart';
 import '../../widgets/app_button.dart';
@@ -67,17 +66,27 @@ class _LoginCardState extends State<LoginCard> {
                 AppFormField(
                   focusNode: emailFocusNode,
                   controller: emailController,
+
                   label: 'Email Id',
                   hint: 'Email Id',
                   required: true,
+
                   keyboardType: TextInputType.emailAddress,
+
+                  autofillHints: const [
+                    AutofillHints.email,
+                  ],
+
+                  textInputAction: TextInputAction.next,
+
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Email is required';
                     }
 
-                    final regex =
-                    RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                    final regex = RegExp(
+                      r'^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$',
+                    );
 
                     if (!regex.hasMatch(value.trim())) {
                       return 'Enter a valid email address';
